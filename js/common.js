@@ -90,7 +90,49 @@ $(".has-dropdown-1 .menu-link").click(function () {
     $(".product-dropdown").toggleClass("active");
 });
 
-$(".slider").owlCarousel({
+//
+// hover menu main
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.querySelector('.nav-container');
+  const items = document.querySelectorAll('.nav-menu > .menu-item');
+  const hoverBg = document.querySelector('.hover-bg');
+
+  function moveHoverBgTo(el) {
+    const rect = el.getBoundingClientRect();
+    const containerRect = menu.getBoundingClientRect();
+
+    const offsetLeft = rect.left - containerRect.left + 16; // cộng thêm 16px trái
+    const width = rect.width - 0; // 
+
+    hoverBg.style.left = offsetLeft + 'px';
+    hoverBg.style.width = width + 'px';
+  }
+
+  // Hiển thị hover-bg ở mục active khi trang tải
+  const activeItem = document.querySelector('.menu-item.is-active');
+  if (activeItem) {
+    moveHoverBgTo(activeItem);
+  }
+
+  // Khi hover vào menu item
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      moveHoverBgTo(item);
+    });
+  });
+
+  // Khi rời khỏi menu → trở lại vị trí active
+  menu.addEventListener('mouseleave', () => {
+    if (activeItem) {
+      moveHoverBgTo(activeItem);
+    } else {
+      hoverBg.style.width = '0';
+    }
+  });
+});
+//
+
+$(".slider-main").owlCarousel({
     items: 1,
     responsive: {
         1200: { items: 1 },

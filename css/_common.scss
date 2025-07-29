@@ -522,13 +522,13 @@ strong{
     .nav-menu > .menu-item { 
         float: left;
         border-top: 0px; 
-        padding:0px 20px;
+        padding:8px 16px;
     }
     .nav-menu > .menu-item:nth-child(2){
-        padding-left: 0px;
+        //padding-left: 0px;
     }
     .nav-menu > .menu-item:last-child{
-        padding-right: 0px;
+        //padding-right: 0px;
     }
     .nav-menu > .menu-item.has-dropdown { 
         position: relative;
@@ -539,7 +539,7 @@ strong{
     }
     .nav-menu > .menu-item.is-active > .menu-link,
     .nav-menu > .menu-item:hover > .menu-link {
-        color: var(--bg-body); /*color khi hover và active menu pc*/
+        color: var(--color-white); /*color khi hover và active menu pc*/
     }
 
     .nav-dropdown > .menu-item {

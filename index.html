@@ -23,19 +23,19 @@
         <!-- /menu_mb --> 
         <div class="menu_header"> 
             <div class="header-center">
-                <div class="container"> 
+                <div class="container container-fluid-lg"> 
                     <div class="row">
-                        <div class="col-lg-4 col-md-3 hidden-sm hidden-xs">
+                        <div class="col-lg-3 col-md-2 hidden-sm hidden-xs">
                             <a href="" class="logo_pc">
                                 <img src="img/logo.png" alt="" />
                             </a>
                         </div>
-                        <div class="col-lg-8 col-md-9 hindden-sm col-xs-9">
+                        <div class="col-lg-7 col-md-9 hidden-sm col-xs-12">
                             <div class="menu_main">
                                 <nav class="nav is-fixed">
                                     <div class="nav-container">
                                         <ul class="nav-menu menu clearfix"> 
-                                            <li class="menu-item is-active">
+                                            <li class="menu-item">
                                                 <a href="about.html" class="menu-link">Home</a> 
                                             </li>
                                             <li class="menu-item">
@@ -85,6 +85,9 @@
                             <div class="hover-bg"></div>
                             <!-- menu main -->
                         </div> 
+                        <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+                            ssdsds
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,70 +95,23 @@
         <!--slide-->
     </header>
     <!-- end header -->  
-
+    <section id="slider">
+        <div class="slider-main owl-carousel">
+            <div class="item">
+                <a href=""><img src="img/slider-1.jpg" alt=""></a>
+            </div>
+            <div class="item">
+                <a href=""><img src="img/slider-1.jpg" alt=""></a>
+            </div>
+            <div class="item">
+                <a href=""><img src="img/slider-1.jpg" alt=""></a>
+            </div>
+        </div>
+    </section> 
 </body>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/owl.carousel.js"></script> 
 <script type="text/javascript" src="js/common.js"></script> 
-
-<style>
-    .nav-container {
-    position: relative;
-    }
-
-.hover-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  background-color: #007bff; /* màu nền hover */
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
-.nav-menu {
-  position: relative;
-  display: flex; 
-}
-
-.menu-item {
-  position: relative;
-  z-index: 2; /* để hiển thị trên hover-bg */
-}
-
-.menu-link {
-  display: block;
-  padding: 10px 16px;
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-}
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menu = document.querySelector('.nav-container');
-    const items = document.querySelectorAll('.nav-menu > .menu-item');
-    const hoverBg = document.querySelector('.hover-bg');
-
-    items.forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        const rect = item.getBoundingClientRect();
-        const containerRect = menu.getBoundingClientRect();
-        const offsetLeft = rect.left - containerRect.left;
-        const width = rect.width;
-
-        hoverBg.style.left = offsetLeft + 'px';
-        hoverBg.style.width = width + 'px';
-      });
-    });
-
-    menu.addEventListener('mouseleave', () => {
-      hoverBg.style.width = '0';
-    });
-  });
-</script>
+  
 </html>
