@@ -92,44 +92,36 @@ $(".has-dropdown-1 .menu-link").click(function () {
 
 //
 // hover menu main
-document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.querySelector('.nav-container');
-  const items = document.querySelectorAll('.nav-menu > .menu-item');
-  const hoverBg = document.querySelector('.hover-bg');
+const items = document.querySelectorAll('#menu-main>li');
 
-  function moveHoverBgTo(el) {
-    const rect = el.getBoundingClientRect();
-    const containerRect = menu.getBoundingClientRect();
-
-    const offsetLeft = rect.left - containerRect.left + 16; // cộng thêm 16px trái
-    const width = rect.width - 0; // 
-
-    hoverBg.style.left = offsetLeft + 'px';
-    hoverBg.style.width = width + 'px';
-  }
-
-  // Hiển thị hover-bg ở mục active khi trang tải
-  const activeItem = document.querySelector('.menu-item.is-active');
-  if (activeItem) {
-    moveHoverBgTo(activeItem);
-  }
-
-  // Khi hover vào menu item
-  items.forEach(item => {
+  items.forEach((item, index) => {
     item.addEventListener('mouseenter', () => {
-      moveHoverBgTo(item);
+      item.classList.add('hovered');
+
+      // phần tử trước đó
+      if (index > 0) {
+        items[index - 1].classList.add('prev-hovered');
+      }
+
+      // phần tử sau đó
+      if (index < items.length - 1) {
+        items[index + 1].classList.add('next-hovered');
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('hovered');
+
+      if (index > 0) {
+        items[index - 1].classList.remove('prev-hovered');
+      }
+
+      if (index < items.length - 1) {
+        items[index + 1].classList.remove('next-hovered');
+      }
     });
   });
 
-  // Khi rời khỏi menu → trở lại vị trí active
-  menu.addEventListener('mouseleave', () => {
-    if (activeItem) {
-      moveHoverBgTo(activeItem);
-    } else {
-      hoverBg.style.width = '0';
-    }
-  });
-});
 //
 
 $(".slider-main").owlCarousel({

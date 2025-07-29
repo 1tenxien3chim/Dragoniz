@@ -3,9 +3,25 @@
        width:1505px;
        margin: 0 auto;
     }
-    .container-fluid-lg{
-        width: 100%;
-    } 
+}
+@media (min-width:1200px) and (max-width:1504px){
+    .col-lg-15{
+        width: 15%;
+    }
+    .col-lg-75{
+        width: 75%;
+    }
+    .col-lg-10{
+        width: 10%;
+    }
+    .logo_pc{
+        img{
+            width: 80%;
+        }
+    }
+    .nav-menu > .menu-item > .menu-link{
+        font-size: 0.85rem;
+    }
 }
 @media (min-width:992px) and (max-width:1199px){
      
@@ -13,63 +29,33 @@
 @media (min-width:992px) {
     
 }
+.container-fluid-lg{
+    width: 100%;
+}
 // css hover menu main 
-.nav-container {
-    position: relative;
-} 
-.hover-bg {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 49px;
-    background-color:var(--primary-2);
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    z-index: 1;
-}
-
-.nav-menu {
-  position: relative; 
-}
-
-.menu-item {
-  position: relative;
-  z-index: 2; /* để hiển thị trên hover-bg */
-}
-.menu-link {
-  display: block; 
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
+#menu-main{
+    >li {
+        transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+        &.hovered, &.is-active {
+            background-color: var(--primary-2);
+            color: white;
+            border-radius: 30px;
+        }
+        &.prev-hovered {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        &.next-hovered {
+            border-top-left-radius:30px;
+            border-bottom-left-radius:30px;
+        }
+    }
 }
 .menu_header{
-    margin-top:15px;
+    margin-top:25px;
 }
 .logo_pc{
-    display: inline-flex;
-    width: 205px;
-    height: 80px;
-    background-color: var(--color-white);
-    justify-content: center;
-    align-items: center;
-    border-bottom-right-radius:30px;
-    position: relative;
-    z-index: 10;
-    &::before{
-        position: absolute;
-        content: "";
-        width: 100px;              /* điều chỉnh theo kích thước bạn muốn */
-        height: 100px;
-        background-color:var(--color-white); /* màu nền xanh nhạt */
-        border-top-left-radius: 100%; /* bo góc trên trái */
-        border: 10px solid var(--color-white);     /* viền trắng */
-        border-bottom-right-radius: 30px;
-        box-sizing: border-box;  
-        transform: rotate(180deg);
-        right: -70px;
-        z-index:9;
-    }
+  
 }
 //slider
 #slider{
@@ -93,13 +79,4 @@
     line-height: 3rem;
     text-transform: uppercase;
     font-size: 700;
-}
-
-.curved-corner {
-  width: 100px;              /* điều chỉnh theo kích thước bạn muốn */
-  height: 100px;
-  background-color: #cbe6fb; /* màu nền xanh nhạt */
-  border-top-left-radius: 100%; /* bo góc trên trái */
-  border: 10px solid white;     /* viền trắng */
-  box-sizing: border-box;       /* đảm bảo viền nằm trong kích thước */
 }

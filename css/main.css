@@ -20808,6 +20808,7 @@ strong {
   .nav-menu > .menu-item:hover,
   .nav-menu > .menu-item.is-active {
     background-color: transparent; /* background khi hover và active menu-item */
+    border-radius: 30px;
   }
   .nav-menu .menu-item {
     transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
@@ -20884,8 +20885,7 @@ strong {
   /*padding, color, font-size menu pc*/
   .nav-menu > .menu-item > .menu-link {
     display: block;
-    font-style: normal;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0px;
     font-family: var(--font-primary);
     color: var(--color-text);
@@ -20896,6 +20896,15 @@ strong {
     float: left;
     border-top: 0px;
     padding: 8px 16px;
+    background: var(--color-white);
+  }
+  .nav-menu > .menu-item:nth-child(2) {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+  .nav-menu > .menu-item:last-child {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
   }
   .nav-menu > .menu-item.has-dropdown {
     position: relative;
@@ -20907,6 +20916,7 @@ strong {
   .nav-menu > .menu-item.is-active > .menu-link,
   .nav-menu > .menu-item:hover > .menu-link {
     color: var(--color-white); /*color khi hover và active menu pc*/
+    border-radius: 0px;
   }
   .nav-dropdown > .menu-item {
     padding: 0;
@@ -21181,70 +21191,47 @@ button.scroll-top {
     width: 1505px;
     margin: 0 auto;
   }
-  .container-fluid-lg {
-    width: 100%;
+}
+@media (min-width: 1200px) and (max-width: 1504px) {
+  .col-lg-15 {
+    width: 15%;
+  }
+  .col-lg-75 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 10%;
+  }
+  .logo_pc img {
+    width: 80%;
+  }
+  .nav-menu > .menu-item > .menu-link {
+    font-size: 0.85rem;
   }
 }
-.nav-container {
-  position: relative;
+.container-fluid-lg {
+  width: 100%;
 }
 
-.hover-bg {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 49px;
+#menu-main > li {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+#menu-main > li.hovered, #menu-main > li.is-active {
   background-color: var(--primary-2);
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  z-index: 1;
+  color: white;
+  border-radius: 30px;
 }
-
-.nav-menu {
-  position: relative;
+#menu-main > li.prev-hovered {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
-
-.menu-item {
-  position: relative;
-  z-index: 2; /* để hiển thị trên hover-bg */
-}
-
-.menu-link {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
+#menu-main > li.next-hovered {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .menu_header {
-  margin-top: 15px;
-}
-
-.logo_pc {
-  display: inline-flex;
-  width: 205px;
-  height: 80px;
-  background-color: var(--color-white);
-  justify-content: center;
-  align-items: center;
-  border-bottom-right-radius: 30px;
-  position: relative;
-  z-index: 10;
-}
-.logo_pc::before {
-  position: absolute;
-  content: "";
-  width: 100px; /* điều chỉnh theo kích thước bạn muốn */
-  height: 100px;
-  background-color: var(--color-white); /* màu nền xanh nhạt */
-  border-top-left-radius: 100%; /* bo góc trên trái */
-  border: 10px solid var(--color-white); /* viền trắng */
-  border-bottom-right-radius: 30px;
-  box-sizing: border-box;
-  transform: rotate(180deg);
-  right: -70px;
-  z-index: 9;
+  margin-top: 25px;
 }
 
 #slider {
@@ -21265,15 +21252,6 @@ button.scroll-top {
   line-height: 3rem;
   text-transform: uppercase;
   font-size: 700;
-}
-
-.curved-corner {
-  width: 100px; /* điều chỉnh theo kích thước bạn muốn */
-  height: 100px;
-  background-color: #cbe6fb; /* màu nền xanh nhạt */
-  border-top-left-radius: 100%; /* bo góc trên trái */
-  border: 10px solid white; /* viền trắng */
-  box-sizing: border-box; /* đảm bảo viền nằm trong kích thước */
 }
 
 .glass-case * {
