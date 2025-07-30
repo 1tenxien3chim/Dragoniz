@@ -21508,10 +21508,14 @@ button.scroll-top {
     max-width: 355px;
   }
   #slider .slider-main .item .caition .text-caption {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #slider .slider-main .item .caition .desc-caprion {
     display: none;
+  }
+  #slider .slider-main .item .caition .btn-contact_caption {
+    width: 130px;
+    height: 50px;
   }
   #slider .social-list {
     position: fixed;
