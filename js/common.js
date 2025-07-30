@@ -92,8 +92,8 @@ $(".has-dropdown-1 .menu-link").click(function () {
 
 //
 // hover menu main
+if (window.innerWidth >= 992) {
 const items = document.querySelectorAll('#menu-main>li');
-
   items.forEach((item, index) => {
     item.addEventListener('mouseenter', () => {
       item.classList.add('hovered');
@@ -121,8 +121,37 @@ const items = document.querySelectorAll('#menu-main>li');
       }
     });
   });
+}
 
 //
+// lenguage home
+  const selector = document.getElementById('languageSelector');
+  const selected = document.getElementById('selectedLang');
+  const options = document.getElementById('langOptions');
+  const arrow = document.getElementById('arrow');
+
+  selected.addEventListener('click', () => {
+    const isOpen = options.style.display === 'block';
+    options.style.display = isOpen ? 'none' : 'block';
+    arrow.classList.toggle('open', !isOpen);
+  });
+
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', () => {
+      selected.childNodes[0].textContent = option.textContent + ' ';
+      options.style.display = 'none';
+      arrow.classList.remove('open');
+      // Xử lý thay đổi ngôn ngữ tại đây nếu cần
+      console.log("Đã chọn:", option.dataset.lang);
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!selector.contains(e.target)) {
+      options.style.display = 'none';
+      arrow.classList.remove('open');
+    }
+  });
 
 $(".slider-main").owlCarousel({
     items: 1,
@@ -141,7 +170,7 @@ $(".slider-main").owlCarousel({
     dots: true,
     dotsEach: false,
     loop: true,
-    nav: true,
+    nav: false,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
     margin: 30,
     center: false,

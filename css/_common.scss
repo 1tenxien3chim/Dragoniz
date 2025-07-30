@@ -28,11 +28,13 @@
     --color-white:#fff;
     --color-black:#000;
     --color-text:#828282;
+    --color-heading:#00235A;
+    --color-orange:#FE9711;
 
 
     // Background Colors
     --background:#F1F3F8;
-    --background:#F6F7F8;
+    --background-2:#F6F7F8;
 
     //font.
     --font-primary:"Poppins", sans-serif;
@@ -238,16 +240,17 @@ strong{
 }
 .nav-toggle {
     width: 45px;
-    height: 50px;
+    height: 45px;
     display: inline-block;
     position: fixed;
     right: 15px;
-    top: 58px;
+    top:15px;
     z-index: 100;
     outline: none;
     line-height: 1; 
     padding: 2px;
     border: 0; 
+    border-radius: 50%;
 }
 
 .nav-toggle span {
@@ -450,11 +453,11 @@ strong{
         display: block;
         opacity: 0;
         position: absolute;
-        top: 100%;
+        top: 103%;
         width:210px;
         margin: 0;
-        background:var(--color-white);
-        border-radius: 0px;
+        border-radius: 15px;
+        background:var(--color-white); 
         visibility: hidden; 
         -webkit-transform: rotate3d(1, 0, 0, -90deg);
         -moz-transform: rotate3d(1, 0, 0, -90deg);
@@ -561,10 +564,10 @@ strong{
 
 .menu_mb {
     position: fixed;
-    top: 48px;
+    top:0px;
     width: 100%;
     background:var(--color-white);
-    z-index: 10; 
+    z-index:99999; 
     height:75px;
     box-shadow: 0 0 3px 2px #ccc;
 }
@@ -576,7 +579,7 @@ strong{
         margin-left:15px;
     }
     @media (max-width:767px){ 
-        margin-left:0px;
+       margin-left:15px;
     }
 }
 .img_logo_mb {
@@ -796,7 +799,7 @@ button.scroll-top {
         height: 100%;
         min-height: 100%;
         margin: 0;
-        padding: 0;
+        padding-top: 75px;
         -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
         transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
         -webkit-transform: translateX(-100%);
