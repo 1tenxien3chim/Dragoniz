@@ -152,6 +152,36 @@ const items = document.querySelectorAll('#menu-main>li');
       arrow.classList.remove('open');
     }
   });
+//
+// đếm số
+ function countUp(element, target, duration) {
+    let start = 0;
+    let startTime = null;
+
+    function update(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const current = Math.floor(progress * target);
+      element.textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count-up");
+    counters.forEach(el => {
+      const target = parseInt(el.getAttribute("data-target"), 10);
+      countUp(el, target, 3000); // bạn có thể điều chỉnh thời gian
+    });
+  });
+//
 
 $(".slider-main").owlCarousel({
     items: 1,

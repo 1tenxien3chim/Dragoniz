@@ -22,29 +22,33 @@
     --typography:#323B4B;  
     --typography-2:#4E5D78;  
     --typography-3:#8A94A6;  
-    --typography-4:#B0B7C3;  
-    --typography-5:#B0B7C3;  
+    --typography-4:#B0B7C3;   
     --color-border:#D6DCE7;
     --color-white:#fff;
     --color-black:#000;
+    --color-orange:#FE9711;
+    --color-green:#0D9E36;
     --color-text:#828282;
     --color-heading:#00235A;
-    --color-orange:#FE9711;
+    --color-heading-body:#01306C;
+    
 
 
     // Background Colors
     --background:#F1F3F8;
     --background-2:#F6F7F8;
+    --background-3:#F7F9FC; 
 
     //font.
     --font-primary:"Poppins", sans-serif;
+    --font-secondary:"Be Vietnam Pro", sans-serif;
     
 }
 html {
     font-size:16px; 
 }
 p {
-    margin: 0 0 10px 0;
+    margin: 0 0 1rem 0;
     line-height: 1.5rem;
 }
 
@@ -83,7 +87,7 @@ a, span, p , button {
 } 
 body {
     font-family:var(--font-primary);
-    background:var(--color-white);
+    background: var(--background-3);
     font-size: 1rem;
     font-weight:300;
     line-height: 1.5rem;
@@ -92,7 +96,7 @@ body {
     font-style: normal;
     color:var(--color-text);
     width: 100%;
-    height: 100%;
+    height: 100%; 
 }
 
 del {
