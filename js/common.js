@@ -155,32 +155,46 @@ const items = document.querySelectorAll('#menu-main>li');
 //
 // đếm số
  function countUp(element, target, duration) {
-    let start = 0;
-    let startTime = null;
+  let start = 0;
+  let startTime = null;
 
-    function update(currentTime) {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-      const current = Math.floor(progress * target);
-      element.textContent = current;
+  function update(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const current = Math.floor(progress * target);
+    element.textContent = current;
 
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        element.textContent = target;
-      }
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target;
     }
-
-    requestAnimationFrame(update);
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".count-up");
-    counters.forEach(el => {
-      const target = parseInt(el.getAttribute("data-target"), 10);
-      countUp(el, target, 3000); // bạn có thể điều chỉnh thời gian
+  requestAnimationFrame(update);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const rowCount = document.querySelector(".row-count");
+  if (!rowCount) return;
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = rowCount.querySelectorAll(".count-up");
+        counters.forEach(el => {
+          const target = parseInt(el.getAttribute("data-target"), 10);
+          countUp(el, target, 3000); // Thời gian chạy (ms)
+        });
+        observer.unobserve(entry.target); // Chỉ chạy 1 lần
+      }
     });
+  }, {
+    threshold: 0.5 // 50% vào tầm nhìn mới chạy (có thể điều chỉnh)
   });
+
+  observer.observe(rowCount);
+});
 //
 
 $(".slider-main").owlCarousel({
@@ -253,4 +267,83 @@ $(".slider-legal").owlCarousel({
     margin: 30,
     center: false,
     video: false
+});
+
+//
+$(document).ready(function() {
+    // --- KHAI BÁO BIẾN VÀ HÀM ---
+    var sliderText = $('.slider-text');
+    var sliderImage = $('.slider-image');
+
+    // Hàm COUNTER để hiển thị "item X of Y"
+    function counter(event) {
+        // Đảm bảo event tồn tại để tránh lỗi
+        if (!event.namespace) {
+            return;
+        }
+        var items = event.item.count; // Tổng số item
+        var item = event.item.index + 1; // Vị trí item hiện tại (bắt đầu từ 0)
+
+        // Owl Carousel với loop=true có thể tạo ra các index ảo, cần điều chỉnh lại
+        if (item > items) {
+            item = item - items;
+        }
+        // Cập nhật nội dung HTML cho thẻ #counter
+        $('#counter').html("item " + item + " of " + items);
+    }
+
+    // Hàm UPDATE ACTIVE CLASS cho slider ảnh
+    function updateActiveClass(event) {
+        sliderImage.find('.owl-item').removeClass('custom-active');
+        sliderImage.find('.owl-item.active').eq(1).addClass('custom-active');
+    }
+
+    // --- KHỞI TẠO SLIDERS ---
+
+    // Khởi tạo slider-text và gắn sự kiện counter
+    sliderText.owlCarousel({
+        items: 1,
+        loop: true,
+        dots: false,
+        nav: false,
+        autoplay: false,
+        onInitialized: counter, // Chạy counter khi khởi tạo xong
+        onTranslated: counter  // Chạy counter mỗi khi chuyển slide
+    });
+
+    // Khởi tạo slider-image (slider ảnh) và gắn sự kiện active class
+    sliderImage.owlCarousel({
+        loop: true,
+        autoplay: false,
+        margin: 20,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 3 },
+            1000: { items: 5 }
+        },
+        onInitialized: updateActiveClass, // Chạy active class khi khởi tạo
+        onTranslated: updateActiveClass   // Chạy active class khi chuyển slide
+    });
+
+    // --- LOGIC ĐỒNG BỘ 2 SLIDERS ---
+
+    // Bắt sự kiện click vào nút "next" của slider-image
+    sliderImage.on('click', '.owl-next', function() {
+        sliderText.trigger('next.owl.carousel');
+    });
+
+    // Bắt sự kiện click vào nút "prev" của slider-image
+    sliderImage.on('click', '.owl-prev', function() {
+        sliderText.trigger('prev.owl.carousel');
+    });
+
+    // Đồng bộ khi kéo/thả slider-image
+    sliderImage.on('changed.owl.carousel', function(event) {
+        if (event.namespace && event.property.name === 'position') {
+            var target = event.relatedTarget.relative(event.property.value, true);
+            sliderText.trigger('to.owl.carousel', [target, 300, true]);
+        }
+    });
 });

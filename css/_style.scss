@@ -4,6 +4,16 @@
        margin: 0 auto;
     }
 }
+@media (min-width:1504px) and (max-width:1600px){
+    .logo_pc{
+        img{
+            max-width: 45%;
+        }
+    }
+    .nav-menu > .menu-item > .menu-link{
+        font-size: 0.85rem;
+    }
+}
 @media (min-width:1200px) and (max-width:1504px){
     .col-lg-15{
         width: 15%;
@@ -286,7 +296,7 @@
         } 
     }
     @media (min-width:992px) and (max-width:1199px){
-        padding: 10px; 
+        padding: 30px 10px 10px 10px;
         .slider-main{
             .item{
                 .caition{
@@ -446,6 +456,7 @@
             z-index: 1;
             top: 43%;
             left: 70px;
+            display: inline-block;
         }
         .text {
             position: absolute;
@@ -475,6 +486,36 @@
             }
         }
     }
+    @media (min-width:992px) and (max-width:1369px){
+        .number-box{
+            width: 100%;
+            height: 150px;
+            .number-background{
+                font-size: 100px;
+            }
+            .main-text {
+                font-size: 26px;
+            }
+            .number-front{
+                top: 40%;
+                left: 35px;
+                font-size: 40px;
+            }
+            .text{ 
+                    top: 30%;
+                    right: 80px;
+                .sub-text{
+                    margin-bottom: 5px;
+                }
+            }
+            &.number-box-fix{
+                 .number-front{
+                    left:20px;
+                }
+            }
+        }
+    }
+
     @media (min-width:992px) and (max-width:1199px){
         .number-box{
             width: 100%;
@@ -515,6 +556,70 @@
             margin: auto;
         }
     }    
+}
+#outstanding{
+    padding: 100px 0px ;
+    background: var(--primary-3);  
+    .title-home{
+        color: var(--color-white);
+    }
+    .text-outstanding{
+        p{
+            font-size: 1.125rem;
+            font-weight:300;
+            color: var(--color-white);
+            font-style: italic;
+            line-height: 1.8rem;
+        } 
+    }
+    .box-outstanding{
+        position: relative;
+        .box-slider-text{
+            position: absolute;
+            width: 50%;
+            right: 0;
+            margin-top: 50px;
+        }
+    } 
+    .slider-image{
+        .owl-stage {
+            display: flex;
+            align-items: flex-end;
+        }
+        .owl-stage-outer { 
+            height: 400px; 
+        } 
+        .item {
+            /* Chiều cao mặc định */
+            height:400px;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            border-radius: 16px;
+            overflow: hidden; 
+            position: relative;
+            img{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 33.33%; 
+                object-fit: cover;
+                transition: all 0.4s ease;
+                border-radius: 16px;
+                width: 100%;
+                display: inline-block;
+            } 
+        }  
+        .owl-item{
+            &.custom-active{
+                .item{
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }  
+    
 }
 #advantage{
     background: var(--color-white);
@@ -571,7 +676,7 @@
                 flex-direction: column;
                 .desc-advantage{
                     margin-bottom: 10px;
-                    margin-top: 00px;
+                    margin-top: 0px;
                 }
             }
         }
