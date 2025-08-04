@@ -289,14 +289,23 @@ $(document).ready(function() {
             item = item - items;
         }
         // Cập nhật nội dung HTML cho thẻ #counter
-        $('#counter').html("item " + item + " of " + items);
+        $('#counter').html(item + " / " + items);
     }
 
     // Hàm UPDATE ACTIVE CLASS cho slider ảnh
     function updateActiveClass(event) {
-        sliderImage.find('.owl-item').removeClass('custom-active');
-        sliderImage.find('.owl-item.active').eq(1).addClass('custom-active');
-    }
+      // Luôn xóa class 'custom-active' khỏi tất cả các item trước
+      sliderImage.find('.owl-item').removeClass('custom-active'); 
+      
+      // Kiểm tra nếu chiều rộng màn hình nhỏ hơn hoặc bằng 1199px
+      if (window.matchMedia('(max-width: 1199px)').matches) {
+          // Màn hình <= 1199px (Mobile/Tablet)
+          sliderImage.find('.owl-item.active').eq(0).addClass('custom-active');
+      } else {
+          // Màn hình > 1199px (PC)
+          sliderImage.find('.owl-item.active').eq(1).addClass('custom-active');
+      }
+  }
 
     // --- KHỞI TẠO SLIDERS ---
 
