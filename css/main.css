@@ -22457,4 +22457,183 @@ footer .box-f.box-contact-f .btn-viewmore span {
     justify-content: center;
     margin-top: 10px;
   }
+}
+
+@media (min-width: 992px) {
+  .row-40 {
+    margin: 0px -40px;
+  }
+  .col-40 {
+    padding: 0px 40px;
+  }
+}
+#banner-pages {
+  position: relative;
+  top: -75px;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+}
+
+#maps {
+  margin: 65px 0px 70px 0px;
+}
+#maps .box-maps {
+  margin-top: -65px;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 8px solid var(--color-white);
+}
+@media (max-width: 767px) {
+  #maps .box-maps {
+    margin-top: -100px;
+  }
+}
+
+#information {
+  background: url(../img/contact-information.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 105px 0px 100px 0px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: -50px;
+}
+#information .box-information, #information .register {
+  min-height: 630px;
+  padding: 150px 60px 100px 60px;
+  background: hsla(0, 0%, 100%, 0.38);
+  border-radius: 20px;
+  border: 1px solid hsla(0, 0%, 100%, 0.55);
+}
+#information .box-information h3, #information .register h3 {
+  color: var(--color-white);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#information .box-information p, #information .register p {
+  color: var(--color-white);
+  max-width: 480px;
+  line-height: 1.75rem;
+}
+#information .box-information .list-information, #information .register .list-information {
+  margin-top: 50px;
+  max-width: 430px;
+  list-style: none;
+}
+#information .box-information .list-information li, #information .register .list-information li {
+  color: var(--color-white);
+  position: relative;
+  padding-left: 37px;
+  margin-bottom: 15px;
+}
+#information .box-information .list-information li::after, #information .register .list-information li::after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  background: url(../img/address-if.png);
+}
+#information .box-information .list-information li:nth-child(2)::after, #information .register .list-information li:nth-child(2)::after {
+  top: -2px;
+  background: url(../img/phone-if.png);
+}
+#information .box-information .list-information li:nth-child(3)::after, #information .register .list-information li:nth-child(3)::after {
+  top: -2px;
+  background: url(../img/Earth.png);
+}
+#information .box-information .list-information li:nth-child(4)::after, #information .register .list-information li:nth-child(4)::after {
+  top: 0px;
+  background: url(../img/email-if.png);
+}
+@media (max-width: 1199px) {
+  #information .box-information, #information .register {
+    padding: 80px 30px 80px 30px;
+  }
+}
+@media (max-width: 767px) {
+  #information .box-information, #information .register {
+    padding: 100px 15px 80px 15px;
+  }
+}
+#information .register {
+  background: hsla(229.09, 44.51%, 33.92%, 0.3608);
+  border: 1px solid hsla(225.73, 100%, 67.84%, 0.549);
+  padding: 75px 60px 65px 60px;
+}
+#information .register h3 {
+  text-align: center;
+}
+#information .register p {
+  max-width: 453px;
+  text-align: center;
+  margin: auto;
+}
+#information .register .box-contact {
+  margin-top: 1rem;
+}
+#information .register .box-contact input, #information .register .box-contact textarea {
+  border-radius: 100px;
+  padding: 12px 20px 12px 60px;
+  height: auto;
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+#information .register .box-contact input:-webkit-input-placeholder, #information .register .box-contact textarea:-webkit-input-placeholder {
+  color: var(--typography-4);
+}
+#information .register .box-contact input:-moz-placeholder, #information .register .box-contact textarea:-moz-placeholder {
+  color: var(--typography-4);
+}
+#information .register .box-contact input::-moz-placeholder, #information .register .box-contact textarea::-moz-placeholder {
+  color: var(--typography-4);
+}
+#information .register .box-contact input:-ms-input-placeholder, #information .register .box-contact textarea:-ms-input-placeholder {
+  color: var(--typography-4);
+}
+#information .register .box-contact input[type=text], #information .register .box-contact textarea[type=text] {
+  background: url(../img/User.png) no-repeat left 25px center, var(--typography-2);
+}
+#information .register .box-contact input[type=number], #information .register .box-contact textarea[type=number] {
+  background: url(../img/phone.png) no-repeat left 25px center, var(--typography-2);
+}
+#information .register .box-contact input[type=email], #information .register .box-contact textarea[type=email] {
+  background: url(../img/email.png) no-repeat left 25px center, var(--typography-2);
+}
+#information .register .box-contact textarea {
+  background: url(../img/comment.png) no-repeat left 25px top 7px, var(--typography-2);
+}
+#information .register .box-contact .btn-viewmore {
+  position: relative;
+  width: 140px;
+  left: calc(50% - 70px);
+  text-align: left;
+  border-radius: 60px;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+#information .register .box-contact .btn-viewmore span {
+  right: 6px;
+}
+@media (max-width: 1199px) {
+  #information .register {
+    margin-top: 60px;
+    padding: 60px 30px;
+  }
+}
+@media (max-width: 767px) {
+  #information .register {
+    padding: 60px 15px 40px 15px;
+  }
+  #information .register .box-contact .btn-viewmore {
+    top: inherit;
+  }
+}
+@media (max-width: 767px) {
+  #information {
+    background: url(../img/contact-information.png) no-repeat center center;
+    background-size: cover;
+  }
 }/*# sourceMappingURL=main.css.map */
