@@ -928,6 +928,9 @@
     } 
 } 
 .btn-viewmore{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top:0px;
     right: 150px;
@@ -949,6 +952,9 @@
         right: 5px;
         top: 4px;
     } 
+    &:hover{
+        color: var(--color-white);
+    }
     @media (max-width:767px) {
         top:40px;
         left: 15px;

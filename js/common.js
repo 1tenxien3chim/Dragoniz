@@ -47,11 +47,10 @@ $(function () {
     // Prevent click events from firing on children of navDropdownToggle
     navDropdownToggle.on('click', '*', function (e) {
         e.stopPropagation();
-    });
-
-
+    });  
 });
 
+ 
 //scroll to top button
 // ----------- croll --------------//
 (function ($) {
