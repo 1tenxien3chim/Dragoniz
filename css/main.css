@@ -22748,4 +22748,44 @@ footer .box-f.box-contact-f .btn-viewmore span {
 }
 #list-news .news-grid .news-grid_item h4 a {
   color: var(--color-heading-body);
+}
+
+#legal.legal-news {
+  background: none;
+}
+
+#Images {
+  background: url(../img/bg-library.png) no-repeat right bottom;
+  padding-bottom: 75px;
+  background-size: contain;
+}
+#Images .title-home {
+  margin: 0px 0px 55px 0px;
+}
+#Images .slider-library .owl-nav .owl-prev, #Images .slider-library .owl-nav .owl-next {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-2);
+  color: var(--primary-2);
+  background: var(--color-white);
+  opacity: 1;
+}
+#Images .slider-library .owl-nav .owl-prev:hover, #Images .slider-library .owl-nav .owl-next:hover {
+  color: var(--color-white);
+  background: var(--primary-2);
+}
+#Images .slider-library .owl-nav .owl-prev {
+  left: -60px;
+}
+#Images .slider-library .owl-nav .owl-next {
+  right: -60px;
+}
+@media (max-width: 991px) {
+  #Images .slider-library .owl-nav .owl-prev {
+    left: 10px;
+  }
+  #Images .slider-library .owl-nav .owl-next {
+    right: 10px;
+  }
 }/*# sourceMappingURL=main.css.map */

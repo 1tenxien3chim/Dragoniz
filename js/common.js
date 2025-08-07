@@ -268,7 +268,30 @@ $(".slider-legal").owlCarousel({
     video: false
 });
 
-//
+$(".slider-library").owlCarousel({
+    items: 1,
+    responsive: {
+        1200: { items: 1 },
+        992: { items: 1 },
+        768: { items: 1 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 5000,
+    dots: false,
+    dotsEach: false,
+    loop: true,
+    nav: true,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+// slider text end image home
 $(document).ready(function() {
     // --- KHAI BÁO BIẾN VÀ HÀM ---
     var sliderText = $('.slider-text');

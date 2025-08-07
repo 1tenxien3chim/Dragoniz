@@ -293,3 +293,49 @@
         } 
     }
 }
+#legal.legal-news{
+    background: none;
+}
+#Images{
+    background: url(../img/bg-library.png)no-repeat right bottom;
+    padding-bottom: 75px;
+    background-size: contain;
+    .title-home{
+        margin: 0px 0px 55px 0px;
+    }
+    .slider-library{
+        .owl-nav{    
+            .owl-prev, .owl-next{
+                width:42px;
+                height:42px;
+                border-radius: 50%;
+                border: 1px solid var(--primary-2);
+                color: var(--primary-2); 
+                background: var(--color-white);
+                opacity: 1;
+                &:hover{
+                    color: var(--color-white);
+                    background: var(--primary-2);
+                }
+            }
+            .owl-prev{
+                left: -60px;
+            }
+            .owl-next{
+                right: -60px;
+            } 
+        }
+    }
+    @media (max-width:991px) { 
+        .slider-library{
+            .owl-nav{
+                .owl-prev{
+                    left: 10px;
+                }
+                .owl-next{
+                    right:10px;
+                }
+            } 
+        } 
+    }
+}
