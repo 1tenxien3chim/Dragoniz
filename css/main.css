@@ -22659,9 +22659,14 @@ footer .box-f.box-contact-f .btn-viewmore span {
   color: var(--color-heading);
   text-transform: uppercase;
 }
+@media (max-width: 991px) {
+  .banner-news h1 {
+    font-size: 2.5rem;
+  }
+}
 @media (max-width: 767px) {
   .banner-news h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -22787,5 +22792,98 @@ footer .box-f.box-contact-f .btn-viewmore span {
   }
   #Images .slider-library .owl-nav .owl-next {
     right: 10px;
+  }
+}
+
+#subtract .intro-image_subtract img {
+  min-height: 780px;
+  width: auto;
+}
+@media (max-width: 991px) {
+  #subtract .intro-image_subtract {
+    margin-bottom: 40px;
+  }
+  #subtract .intro-image_subtract img {
+    min-height: inherit;
+  }
+}
+#subtract .box-subtract {
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+#subtract .box-subtract h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--secondary);
+  line-height: 3rem;
+  font-family: var(--font-secondary);
+  margin-bottom: 20px;
+}
+#subtract .box-subtract p {
+  font-size: 1rem;
+  color: var(--typography-3);
+}
+#subtract .box-subtract .btn-viewmore {
+  position: unset;
+  width: inherit;
+  padding: 6px 6px 6px 20px;
+  margin: 25px 0px 20px 0px;
+}
+#subtract .box-subtract .btn-viewmore span {
+  position: unset;
+  margin-left: 15px;
+}
+@media (max-width: 991px) {
+  #subtract .box-subtract {
+    padding-left: 0px;
+    margin-bottom: 30px;
+  }
+}
+#subtract .box-slider-subtract {
+  padding-top: 45px;
+  margin-left: -85px;
+  padding-right: 130px;
+}
+#subtract .box-slider-subtract .slider-subtract .item {
+  overflow: hidden;
+}
+#subtract .box-slider-subtract .slider-subtract .item img {
+  border-radius: 20px;
+}
+#subtract .box-slider-subtract .slider-subtract .owl-dots {
+  display: inline-block;
+  width: unset;
+  margin-top: 0px;
+  rotate: 90deg;
+  bottom: 43%;
+  right: -65px;
+}
+#subtract .box-slider-subtract .slider-subtract .owl-dots span {
+  margin: 3px;
+  transition: all 0.25s ease-in-out;
+}
+#subtract .box-slider-subtract .slider-subtract .owl-dots .owl-dot.active span {
+  background: var(--primary-2);
+  width: 12px;
+  height: 12px;
+}
+@media (min-width: 1200px) and (max-width: 1504px) {
+  #subtract .box-slider-subtract {
+    padding-top: 15px;
+    margin-left: -55px;
+    padding-right: 80px;
+  }
+}
+@media (max-width: 991px) {
+  #subtract .box-slider-subtract {
+    padding-top: 15px;
+    margin-left: 0px;
+    padding-right: 60px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 767px) {
+  #subtract .box-slider-subtract .slider-subtract .owl-dots {
+    right: -95px;
   }
 }/*# sourceMappingURL=main.css.map */

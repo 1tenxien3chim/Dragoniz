@@ -291,6 +291,30 @@ $(".slider-library").owlCarousel({
     center: false,
     video: false
 });
+$(".slider-subtract").owlCarousel({
+    items: 2,
+    responsive: {
+        1200: { items: 2 },
+        992: { items: 2 },
+        768: { items: 2 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 5000,
+    dots: true,
+    dotsEach: false,
+    loop: true,
+    nav: false,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+
 // slider text end image home
 $(document).ready(function() {
     // --- KHAI BÁO BIẾN VÀ HÀM ---
@@ -345,7 +369,7 @@ $(document).ready(function() {
     // Khởi tạo slider-image (slider ảnh) và gắn sự kiện active class
     sliderImage.owlCarousel({
         loop: true,
-        autoplay: false,
+        autoplay: false, 
         margin: 20,
         nav: true,
         dots: false,
