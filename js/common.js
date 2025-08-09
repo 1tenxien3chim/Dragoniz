@@ -402,3 +402,67 @@ $(document).ready(function() {
         }
     });
 });
+
+// slider brand and content
+
+var brand = $(".slider-brand");
+var brandText = $(".slider-brand-text");
+
+brand.owlCarousel({ 
+    items: 3,
+    responsive: {
+        1200: { items: 3 },
+        992: { items: 3 },
+        768: { items: 3 },
+        480: { items: 2 },
+        0: { items: 2 }
+    }, 
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,  
+    dots: false,
+    loop: false,
+    nav: false,
+    margin:15
+});
+
+brandText.owlCarousel({
+    items: 1,
+    responsive: {
+        1200: { items: 1 },
+        992: { items: 1 },
+        768: { items: 1 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,  
+    dots: false,
+    loop: false,
+    nav: true,
+    margin: 20
+});
+
+// Đồng bộ khi thay đổi slider-brand-text
+brandText.on('changed.owl.carousel', function(event) {
+    let index = event.item.index;
+    brand.trigger('to.owl.carousel', [index, 300, true]);
+    updateActiveCustom(index);
+});
+
+// Nếu muốn click vào slider-brand thì cũng đổi text
+brand.on('click', '.owl-item', function() {
+    let index = $(this).index();
+    brandText.trigger('to.owl.carousel', [index, 300, true]);
+    updateActiveCustom(index);
+});
+
+// Hàm gắn class active-custom
+function updateActiveCustom(index) {
+    $('.slider-brand .owl-item').removeClass('active-custom');
+    $('.slider-brand .owl-item').eq(index).addClass('active-custom');
+}
+
+// Khởi tạo class active-custom lần đầu
+updateActiveCustom(0);
