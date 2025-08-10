@@ -18,6 +18,12 @@
     .col-40{
         padding: 0px 40px;
     }
+    .row-40{
+        margin: 0px -20px;
+    }
+    .col-20{
+        padding: 0px 20px;
+    }
 }
 #banner-pages{
     position: relative;
@@ -606,7 +612,7 @@
         position: relative;
         margin-bottom:65px;
         margin-top: -15px;
-        a{
+        >a{
             display: inline-flex;
             width: 62px;
             height: 62px;
@@ -618,6 +624,7 @@
             margin-left: 10px;
             &:hover{
                 background: var(--color-white);
+                cursor: pointer;
             }
         }
         .form-land{
@@ -625,11 +632,11 @@
             top: 80px;
             right:0px;
             width: 585px;
-            height: 363px;
             background: var(--color-white);
             border-radius: 30px;
             z-index: 100;
-            padding: 50px 25px 25px 25px; 
+            padding: 50px 25px 15px 25px; 
+            display: none;
             .form-group{
                 margin-bottom: 20px;
             }
@@ -642,6 +649,18 @@
                 text-transform: capitalize;
                 color: var(--typography-2); 
                 font-size: 1rem; 
+                background: #F1F2F3; 
+            }
+            select{
+                background: #F1F2F3;
+                option{
+                    background: #F1F2F3;
+                }
+            }
+            .bg-seclector{
+                border-radius: 30px;
+                background: #F1F2F3;
+                overflow: hidden;
             }
             input{
                 &:-webkit-input-placeholder{
@@ -662,5 +681,95 @@
                 background: url(../img/icon-down.png)no-repeat right 20px center;
             }
         }
+        .btn-viewmore{
+            position: unset;
+            width: inherit;
+            padding: 6px 6px 6px 20px;
+            span{
+                position: unset;
+                margin-left: 10px;
+            }
+        }
     } 
+}
+#content-lend{
+    margin-top: 130px; 
+    .content-lend{
+        h3{
+            color: var(--color-black);
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            font-family: var(--font-secondary);
+        }
+        p{
+            color: var(--typography-2);
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+        }
+    }
+    .title-home{
+        color: var(--color-black);
+        font-size: 24px;
+        text-transform: uppercase;
+        font-family: var(--font-secondary);
+        font-weight: 500;
+        margin-bottom:20px;
+        background: url(../img/icon-title.png) no-repeat top 17px left;
+    }
+    .list-parameter{
+        max-width: 725px;
+        list-style: none;
+        display: flex;
+        flex-wrap:wrap;
+        margin-bottom: 20px;
+        li{
+            width: 50%;
+            position: relative;
+            padding-left:35px;
+            margin-bottom:15px;
+            font-weight:700;
+            font-family:var(--font-secondary);
+            &::after{
+                position: absolute;
+                content:"";
+                width: 23px;
+                height: 23px;
+                left: 0px;
+                top:0px;
+                background: url(../img/icon-v.png)no-repeat center center;
+            }
+            @media (max-width:767px) {
+                width: 100%;
+            }
+        }
+    }
+    .advantage{
+        h3{
+            font-size:20px;
+            color: var(--color-black);
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        } 
+        li{
+            list-style: none;
+            padding: 20px 0px;
+            border-bottom: 2px solid hsl(0deg 0% 0% / 16%);
+            color: var(--color-black);
+            font-weight: 400;
+            font-family: var(--font-secondary);
+        }
+    }
+    .img-content-lend_box{
+        margin-top:60px;
+        background: url(../img/bg-library.png)no-repeat bottom -130px right -50px;
+        background-size:cover;
+        padding-bottom: 90px;
+        .img-content-lend_item{
+            border-radius: 20px;
+            overflow: hidden; 
+            margin-bottom: 40px;
+        }
+    }
 }

@@ -466,3 +466,9 @@ function updateActiveCustom(index) {
 
 // Khởi tạo class active-custom lần đầu
 updateActiveCustom(0);
+
+
+// search land 
+$(".filter-land").click(function(){
+  $(".form-land").fadeToggle("slow");
+});
