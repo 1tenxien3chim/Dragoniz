@@ -23121,6 +23121,16 @@ footer .box-f.box-contact-f .btn-viewmore span {
   position: unset;
   margin-left: 10px;
 }
+@media (max-width: 767px) {
+  #land-search .search-land {
+    justify-content: unset;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+  #land-search .search-land .form-land {
+    width: 100%;
+  }
+}
 
 #content-lend {
   margin-top: 130px;
@@ -23135,6 +23145,12 @@ footer .box-f.box-contact-f .btn-viewmore span {
   color: var(--typography-2);
   margin-bottom: 20px;
   font-family: var(--font-secondary);
+}
+@media (max-width: 991px) {
+  #content-lend .content-lend h3 {
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
 }
 #content-lend .title-home {
   color: var(--color-black);
@@ -23200,4 +23216,28 @@ footer .box-f.box-contact-f .btn-viewmore span {
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 40px;
+}
+
+#information.bg-land {
+  background: url(../img/bg-land.png) no-repeat;
+  padding: 115px 0px 90px 0px;
+  background-size: 100% 100%;
+}
+#information.bg-land .register {
+  min-height: auto;
+}
+#information.bg-land .register p {
+  max-width: inherit;
+}
+#information.bg-land .register .box-contact .form-group {
+  margin-bottom: 20px;
+}
+@media (max-width: 991px) {
+  #information.bg-land {
+    padding: 40px 0px;
+    background-size: cover;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    overflow: hidden;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -690,6 +690,14 @@
                 margin-left: 10px;
             }
         }
+        @media (max-width:767px) {
+            justify-content:unset;
+            margin-top:30px;
+            margin-bottom:25px;
+            .form-land{
+                width: 100%;
+            }
+        }
     } 
 }
 #content-lend{
@@ -705,6 +713,12 @@
             color: var(--typography-2);
             margin-bottom: 20px;
             font-family: var(--font-secondary);
+        }
+        @media (max-width:991px) {
+            h3{
+                margin-top: 30px;
+                margin-bottom: 25px;
+            }
         }
     }
     .title-home{
@@ -770,6 +784,31 @@
             border-radius: 20px;
             overflow: hidden; 
             margin-bottom: 40px;
+        }
+    }
+}
+#information {
+    &.bg-land{
+        background: url(../img/bg-land.png) no-repeat;
+        padding: 115px 0px 90px 0px;
+        background-size: 100% 100%; 
+        .register{
+            min-height: auto;
+            p{
+                max-width: inherit;
+            }
+            .box-contact{
+                .form-group{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        @media (max-width:991px) {
+            padding: 40px 0px;
+            background-size: cover;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+            overflow: hidden;
         }
     }
 }
