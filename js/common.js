@@ -245,11 +245,11 @@ $(".slider-news-home").owlCarousel({
 });
 
 $(".slider-legal").owlCarousel({
-    items: 1,
+    items: 3,
     responsive: {
-        1200: { items: 1 },
-        992: { items: 1 },
-        768: { items: 1 },
+        1200: { items:3 },
+        992: { items: 3 },
+        768: { items: 2 },
         480: { items: 1 },
         0: { items: 1 }
     },
@@ -297,6 +297,29 @@ $(".slider-subtract").owlCarousel({
         1200: { items: 2 },
         992: { items: 2 },
         768: { items: 2 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 5000,
+    dots: true,
+    dotsEach: false,
+    loop: true,
+    nav: false,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+$(".slider-cty").owlCarousel({
+    items: 1,
+    responsive: {
+        1200: { items: 1 },
+        992: { items: 1 },
+        768: { items: 1 },
         480: { items: 1 },
         0: { items: 1 }
     },

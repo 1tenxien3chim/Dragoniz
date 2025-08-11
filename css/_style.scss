@@ -961,6 +961,16 @@
         right: inherit;
     }
 }
+.image-partner{
+    background: var(--color-white);
+    border-radius: 10px;
+    border: 1px solid var(--color-border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 105px;
+    margin-bottom: 15px;
+}
 #partner{
     padding: 95px 0px 115px 0px;
     .title-home{
@@ -986,7 +996,7 @@
             margin-bottom: 15px;
         }
     }
-}
+} 
 #contact-home{
     padding: 80px 0px 65px 0px;
     position: relative;
