@@ -50,6 +50,7 @@ $(function () {
     });  
 });
 
+
  
 //scroll to top button
 // ----------- croll --------------//
@@ -92,34 +93,51 @@ $(".has-dropdown-1 .menu-link").click(function () {
 //
 // hover menu main
 if (window.innerWidth >= 992) {
-const items = document.querySelectorAll('#menu-main>li');
-  items.forEach((item, index) => {
-    item.addEventListener('mouseenter', () => {
-      item.classList.add('hovered');
-
-      // phần tử trước đó
-      if (index > 0) {
-        items[index - 1].classList.add('prev-hovered');
-      }
-
-      // phần tử sau đó
-      if (index < items.length - 1) {
-        items[index + 1].classList.add('next-hovered');
-      }
+    document.addEventListener('DOMContentLoaded', () => {
+        updateActiveNeighbors();
+        initHoverEvents();
     });
 
-    item.addEventListener('mouseleave', () => {
-      item.classList.remove('hovered');
+    function updateActiveNeighbors() {
+        const items = document.querySelectorAll('#menu-main > li');
+        items.forEach(item => {
+            item.classList.remove('prev-active', 'next-active');
+        });
+        items.forEach((item, index) => {
+            if (item.classList.contains('is-active')) {
+                if (index > 0) {
+                    items[index - 1].classList.add('prev-active');
+                }
+                if (index < items.length - 1) {
+                    items[index + 1].classList.add('next-active');
+                }
+            }
+        });
+    }
 
-      if (index > 0) {
-        items[index - 1].classList.remove('prev-hovered');
-      }
-
-      if (index < items.length - 1) {
-        items[index + 1].classList.remove('next-hovered');
-      }
-    });
-  });
+    function initHoverEvents() {
+        const items = document.querySelectorAll('#menu-main > li');
+        items.forEach((item, index) => {
+            item.addEventListener('mouseenter', () => {
+                item.classList.add('hovered');
+                if (index > 0) {
+                    items[index - 1].classList.add('prev-hovered');
+                }
+                if (index < items.length - 1) {
+                    items[index + 1].classList.add('next-hovered');
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('hovered');
+                if (index > 0) {
+                    items[index - 1].classList.remove('prev-hovered');
+                }
+                if (index < items.length - 1) {
+                    items[index + 1].classList.remove('next-hovered');
+                }
+            });
+        });
+    }
 }
 
 //
@@ -338,6 +356,56 @@ $(".slider-cty").owlCarousel({
     video: false
 });
 
+$(".slider-team").owlCarousel({
+    items: 3,
+    responsive: {
+        1200: { items: 3 },
+        992: { items: 3 },
+        768: { items: 2 },
+        480: { items: 2 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 5000,
+    dots: true,
+    dotsEach: false,
+    loop: true,
+    nav: false,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+
+$(".slide-text-team").owlCarousel({
+    items: 1,
+    responsive: {
+        1200: { items: 1 },
+        992: { items: 1 },
+        768: { items: 1 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 5000,
+    dots: false,
+    dotsEach: false,
+    loop: false,
+    nav: false,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+
+
+
 // slider text end image home
 $(document).ready(function() {
     // --- KHAI BÁO BIẾN VÀ HÀM ---
@@ -430,7 +498,6 @@ $(document).ready(function() {
 
 var brand = $(".slider-brand");
 var brandText = $(".slider-brand-text");
-
 brand.owlCarousel({ 
     items: 3,
     responsive: {
@@ -448,7 +515,6 @@ brand.owlCarousel({
     nav: false,
     margin:15
 });
-
 brandText.owlCarousel({
     items: 1,
     responsive: {
@@ -466,32 +532,76 @@ brandText.owlCarousel({
     nav: true,
     margin: 20
 });
-
 // Đồng bộ khi thay đổi slider-brand-text
 brandText.on('changed.owl.carousel', function(event) {
     let index = event.item.index;
     brand.trigger('to.owl.carousel', [index, 300, true]);
     updateActiveCustom(index);
 });
-
 // Nếu muốn click vào slider-brand thì cũng đổi text
 brand.on('click', '.owl-item', function() {
     let index = $(this).index();
     brandText.trigger('to.owl.carousel', [index, 300, true]);
     updateActiveCustom(index);
 });
-
 // Hàm gắn class active-custom
 function updateActiveCustom(index) {
     $('.slider-brand .owl-item').removeClass('active-custom');
     $('.slider-brand .owl-item').eq(index).addClass('active-custom');
 }
-
 // Khởi tạo class active-custom lần đầu
 updateActiveCustom(0);
-
-
 // search land 
 $(".filter-land").click(function(){
   $(".form-land").fadeToggle("slow");
+});
+
+
+// slider tem about
+
+var sliderTeam = $(".slider-team");
+var sliderText = $(".slide-text-team");
+// Slider team
+sliderTeam.owlCarousel({
+    items: 3,
+    responsive: {
+        1200: { items: 3 },
+        992: { items: 3 },
+        768: { items: 2 },
+        480: { items: 2 },
+        0: { items: 1 }
+    },
+    loop: true,
+    margin: 30,
+    dots: true,
+    nav: false
+}).on('initialized.owl.carousel', function() {
+    // Thêm class vào owl-item đầu tiên
+    sliderTeam.find('.owl-item').removeClass('activer-custom');
+    sliderTeam.find('.owl-item').eq(0).addClass('activer-custom');
+});
+// Slider text
+sliderText.owlCarousel({
+    items: 1,
+    loop: false,
+    dots: false,
+    nav: false,
+    animateOut: ['fadeIn'], // default: false
+    animateIn: ['fadeIn'], // default: false
+});
+// Đồng bộ khi slider team thay đổi
+sliderTeam.on('changed.owl.carousel', function(event) {
+    var index = event.item.index - event.relatedTarget._clones.length / 2;
+    var count = event.item.count;
+    if (index < 0) index = count + index;
+    index = index % count;
+
+    sliderText.trigger('to.owl.carousel', [index, 300, true]);
+
+    sliderTeam.find('.owl-item').removeClass('activer-custom');
+    sliderTeam.find('.owl-item').eq(event.item.index).addClass('activer-custom');
+});
+// Đồng bộ khi slider text thay đổi (2 chiều)
+sliderText.on('changed.owl.carousel', function(event) {
+    sliderTeam.trigger('to.owl.carousel', [event.item.index, 300, true]);
 });

@@ -854,6 +854,7 @@
         .img-cty{
             border-radius: 30px; 
             position: relative;
+            z-index: 100;
             img{
                 min-width:318px;
                 height: auto;
@@ -1149,7 +1150,7 @@
 #strategic-partner{
     position: relative;
     padding: 60px 0px 110px 0px;
-    background: url(../img/bg-partner.png)no-repeat bottom right;
+    background: url(../img/bg-partner.png)no-repeat bottom right, #fff;
     border-bottom-left-radius:30px;
     border-bottom-right-radius:30px;
     h2{
@@ -1164,4 +1165,143 @@
             width: 20%;
         }
     } 
+}
+#Executive-Team{
+    padding: 54px 0px 65px 0px;
+    h2{
+        margin-bottom: 65px;
+    }
+    .box-team{
+        position: relative;
+        margin-bottom: 50px;
+        .box-team_item{
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translate(-50%);
+            min-width:320px;
+            padding: 15px 30px;
+            background:hsl(219deg 21% 39% / 70%);
+            border: 1px solid #fff; 
+            border-radius: 20px;
+            text-align: center;
+            color: var(--color-white); 
+            p{
+                font-weight: 500;
+                margin-bottom:5px;
+                text-transform: uppercase;
+            }
+            h4{
+                font-size: 24px;
+                font-weight: 600; 
+                color: var(--color-white);
+            }
+        }
+        .icon{
+            position: absolute;
+            bottom: 18px;
+            right: 3px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%; 
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--primary-2);
+            color: var(--primary-2);
+            background:var(--color-white);
+        }
+    }
+    .slider-team{
+        position: relative;
+        z-index: 10;
+        .owl-item{
+            &.activer-custom{
+                .box-team{
+                    .icon{
+                        border: 1px solid var(--color-white);
+                        color: var(--color-white);
+                        background:var(--primary-2);
+                    }
+                }
+            }
+        }
+        .owl-dots{
+            display: inline-block;
+            width: unset;
+            margin-top: 0px;
+            rotate:90deg;
+            bottom: 43%;
+            right: -65px;
+            span{ 
+                margin: 5px; 
+                transition: all 0.25s ease-in-out;
+            }
+            .owl-dot{
+                &.active{
+                    span{
+                        background: var(--primary-2);
+                        width:12px;
+                        height: 12px; 
+                    }
+                }
+            }  
+        }
+    }
+    .slide-text-team{
+        position: relative;
+        z-index: 9;
+        padding: 60px 65px;
+        border-radius: 40px;
+        margin-top: -60px;
+        background: url(../img/bg-team.png)no-repeat;
+        background-size: 100%   100%;
+        .item{
+            color: var(--color-black);
+            p{
+                color: var(--color-black);
+            } 
+        }
+    }
+    @media (min-width:1200px) and (max-width:1504px){
+        .slider-team{
+            .box-team{
+                .box-team_item{
+                    min-width:280px;
+                }
+                .icon{
+                    bottom: 0px;
+                    right: -10px;
+                }
+            }
+        }
+    }
+    @media (max-width:991px){
+        .slider-team{ 
+            .box-team{
+                .box-team_item{
+                    min-width:260px;
+                    p{
+                        font-size: 14px;
+                    }
+                    h4{
+                        font-size: 20px;
+                    }
+                }
+                .icon{
+                    bottom: 5px;
+                    right: -5px;
+                }
+            }
+        }
+        .slide-text-team{
+            padding: 35px;
+        }
+    }
+    @media (max-width:767px){
+        .slide-text-team{
+            padding:20px;
+            background: var(--color-white);
+        }
+    }
 }
