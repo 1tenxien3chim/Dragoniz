@@ -380,7 +380,7 @@ $(".slider-team").owlCarousel({
     video: false
 });
 
-$(".slide-text-team").owlCarousel({
+$(".slider-park-text").owlCarousel({
     items: 1,
     responsive: {
         1200: { items: 1 },
@@ -397,12 +397,15 @@ $(".slide-text-team").owlCarousel({
     dots: false,
     dotsEach: false,
     loop: false,
-    nav: false,
+    nav: true,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
     margin: 30,
     center: false,
     video: false
 });
+
+
+
 
 
 

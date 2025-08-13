@@ -557,7 +557,7 @@
         }
     }    
 }
-.slider-news-home, .slider-legal, .slider-image, .slider-brand-text{
+.slider-news-home, .slider-legal, .slider-image, .slider-brand-text, .slider-park-text{
     .owl-nav{
         top: -75px;
         display: inline-block;
@@ -1105,7 +1105,7 @@
         
     }
 }
-#legal{
+#legal, #tax{
     padding: 90px 0px 70px 0px;
     background: url(../img/bg-legal.png) no-repeat right 10px center;  
     .title-home{
