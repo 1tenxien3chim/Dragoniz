@@ -299,7 +299,7 @@ $(".slider-library").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed: 2000,
     dots: false,
     dotsEach: false,
     loop: true,
@@ -322,7 +322,7 @@ $(".slider-subtract").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed: 2000,
     dots: true,
     dotsEach: false,
     loop: true,
@@ -345,9 +345,34 @@ $(".slider-cty").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed: 2000,
     dots: true,
     dotsEach: false,
+    loop: true,
+    nav: false,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+
+//  slider-partner
+$(".slider-partner").owlCarousel({
+    items: 5,
+    responsive: {
+        1200: { items: 5 },
+        992: { items: 4 },
+        768: { items: 3 },
+        480: { items: 2 },
+        0: { items: 2 }
+    },
+    rewind: true,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed:2000,
+    dots: false,
+    dotsEach: true,
     loop: true,
     nav: false,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
