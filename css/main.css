@@ -23895,13 +23895,13 @@ footer .box-f.box-contact-f .btn-viewmore span {
   font-weight: bold;
   font-family: var(--font-secondary);
   text-transform: uppercase;
-  margin-bottom: 55px;
+  margin-bottom: 25px;
   color: var(--primary-2);
 }
 #industrial-park .slider-park-text .item p {
   font-weight: 400;
   color: var(--typography-2);
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-align: justify;
 }
 #industrial-park .slider-park-text .item .btn-viewmore {
@@ -23919,7 +23919,7 @@ footer .box-f.box-contact-f .btn-viewmore span {
 }
 #industrial-park .slider-park-text .owl-nav {
   top: unset;
-  bottom: -100px;
+  bottom: -90px;
   right: -50px;
   border-left: none;
   width: inherit;
@@ -23957,7 +23957,7 @@ footer .box-f.box-contact-f .btn-viewmore span {
 #industrial-park .slider-img-park .img-park .date-park {
   position: absolute;
   top: 35px;
-  left: 20px;
+  left: 30px;
   color: var(--color-white);
   font-size: 12px;
   font-family: var(--font-secondary);
@@ -23965,9 +23965,28 @@ footer .box-f.box-contact-f .btn-viewmore span {
 #industrial-park .slider-img-park .img-park::after {
   position: absolute;
   content: "";
-  width: 100%;
+  width: calc(100% - 150px);
   height: 1px;
   background: var(--color-white);
-  right: -20%;
-  top: 10px;
+  left: 115px;
+  top: 44px;
+}
+@media (min-width: 1200px) and (max-width: 1504px) {
+  #industrial-park .slider-park-text {
+    margin-bottom: 50px;
+  }
+  #industrial-park .slider-img-park .img-park .text-park_item {
+    padding: 15px;
+  }
+  #industrial-park .slider-img-park .img-park .text-park_item h4 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 991px) {
+  #industrial-park .slider-park-text {
+    margin-bottom: 100px;
+  }
+  #industrial-park .slider-park-text .owl-nav {
+    right: 0px;
+  }
 }/*# sourceMappingURL=main.css.map */

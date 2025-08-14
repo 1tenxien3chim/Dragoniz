@@ -1511,7 +1511,7 @@
         font-weight: bold;
         font-family:var(--font-secondary);
         text-transform: uppercase;    
-        margin-bottom: 55px;
+        margin-bottom:25px;
         color: var(--primary-2);
     }
     .slider-park-text{
@@ -1519,7 +1519,7 @@
             p{
                 font-weight: 400;
                 color: var(--typography-2);
-                margin-bottom:30px;
+                margin-bottom:15px;
                 text-align: justify;
             }
             .btn-viewmore{
@@ -1538,7 +1538,7 @@
         }
         .owl-nav{
             top: unset;
-            bottom:-100px;
+            bottom:-90px;
             right: -50px;
             border-left:none;
             width: inherit;
@@ -1577,7 +1577,7 @@
             .date-park{
                 position: absolute;
                 top: 35px;
-                left: 20px;
+                left: 30px;
                 color: var(--color-white);
                 font-size: 12px;
                 font-family: var(--font-secondary); 
@@ -1585,12 +1585,36 @@
             &::after{
                 position: absolute;
                 content: "";
-                width:100%;
+                width:calc(100% - 150px);
                 height: 1px;
                 background: var(--color-white);
-                right:-20%;
-                top: 10px;  
+                left: 115px;
+                top: 44px; 
             }
         }
     }
+    @media (min-width:1200px) and (max-width:1504px){
+        .slider-park-text{
+            margin-bottom:50px;
+        }
+        .slider-img-park{
+            .img-park{
+                .text-park_item{
+                    padding: 15px;
+                    h4{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+     @media (max-width:991px){
+        .slider-park-text{
+            margin-bottom: 100px;
+            .owl-nav {
+                right: 0px;
+            }
+        }
+    }
+    
 }

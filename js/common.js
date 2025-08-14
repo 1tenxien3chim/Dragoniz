@@ -227,7 +227,7 @@ $(".slider-main").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed:2000,
     dots: true,
     dotsEach: false,
     loop: true,
@@ -251,7 +251,7 @@ $(".slider-news-home").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed:2000,
     dots: false,
     dotsEach: false,
     loop: true,
@@ -275,7 +275,7 @@ $(".slider-legal").owlCarousel({
     autoplay: false,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    smartSpeed: 5000,
+    smartSpeed:2000,
     dots: false,
     dotsEach: false,
     loop: true,
@@ -355,59 +355,6 @@ $(".slider-cty").owlCarousel({
     center: false,
     video: false
 });
-
-$(".slider-team").owlCarousel({
-    items: 3,
-    responsive: {
-        1200: { items: 3 },
-        992: { items: 3 },
-        768: { items: 2 },
-        480: { items: 2 },
-        0: { items: 1 }
-    },
-    rewind: false,
-    autoplay: false,
-    autoplayHoverPause: true,
-    autoplayTimeout: 5000,
-    smartSpeed: 5000,
-    dots: true,
-    dotsEach: false,
-    loop: true,
-    nav: false,
-    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-    margin: 30,
-    center: false,
-    video: false
-});
-
-$(".slider-park-text").owlCarousel({
-    items: 1,
-    responsive: {
-        1200: { items: 1 },
-        992: { items: 1 },
-        768: { items: 1 },
-        480: { items: 1 },
-        0: { items: 1 }
-    },
-    rewind: false,
-    autoplay: false,
-    autoplayHoverPause: true,
-    autoplayTimeout: 5000,
-    smartSpeed: 5000,
-    dots: false,
-    dotsEach: false,
-    loop: false,
-    nav: true,
-    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-    margin: 30,
-    center: false,
-    video: false
-});
-
-
-
-
-
 
 // slider text end image home
 $(document).ready(function() {
@@ -608,3 +555,80 @@ sliderTeam.on('changed.owl.carousel', function(event) {
 sliderText.on('changed.owl.carousel', function(event) {
     sliderTeam.trigger('to.owl.carousel', [event.item.index, 300, true]);
 });
+
+// slider park 
+
+// Khởi tạo slider ảnh
+var sliderImg = $(".slider-img-park").owlCarousel({
+    items: 3,
+    responsive: {
+        1200: { items: 3 },
+        992: { items: 3 },
+        768: { items: 2 },
+        480: { items: 2 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 2000,
+    dots: false,
+    loop: false,
+    nav: false,
+    margin: 20,
+    center: false,
+    video: false
+});
+
+// Khởi tạo slider text
+var sliderText = $(".slider-park-text").owlCarousel({
+    items: 1,
+    responsive: {
+        1200: { items: 1 },
+        992: { items: 1 },
+        768: { items: 1 },
+        480: { items: 1 },
+        0: { items: 1 }
+    },
+    rewind: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    autoplayTimeout: 5000,
+    smartSpeed: 2000,
+    dots: false,
+    loop: false,
+    nav: true,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+    margin: 30,
+    center: false,
+    video: false
+});
+
+// Hàm cập nhật class activer-park theo index của slider text
+function updateActivePark(index) {
+    $(".slider-img-park .owl-item").removeClass("activer-park");
+    $(".slider-img-park .owl-item").eq(index).addClass("activer-park");
+}
+
+// Đồng bộ khi click nút prev/next của slider text
+sliderText.on("click", ".owl-prev", function () {
+    var index = sliderText.find(".owl-item.active").index();
+    sliderImg.trigger("prev.owl.carousel");
+    updateActivePark(index - 1 >= 0 ? index - 1 : 0);
+});
+
+sliderText.on("click", ".owl-next", function () {
+    var index = sliderText.find(".owl-item.active").index();
+    sliderImg.trigger("next.owl.carousel");
+    updateActivePark(index + 1);
+});
+
+// Đồng bộ khi vuốt hoặc đổi slide ở slider text
+sliderText.on("changed.owl.carousel", function (event) {
+    sliderImg.trigger("to.owl.carousel", [event.item.index, 200, true]);
+    updateActivePark(event.item.index);
+});
+
+// Gọi khi load trang lần đầu
+updateActivePark(0);
