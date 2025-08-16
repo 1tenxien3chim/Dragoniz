@@ -20909,13 +20909,25 @@ strong {
     padding: 8px 16px;
     background: var(--color-white);
   }
-  .nav-menu > .menu-item:nth-child(2) {
+  .nav-menu > .menu-item:nth-child(1) {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
   }
   .nav-menu > .menu-item:last-child {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
+  }
+  .nav-menu > .menu-item.prev-active {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  .nav-menu > .menu-item.next-active {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
   .nav-menu > .menu-item.has-dropdown {
     position: relative;

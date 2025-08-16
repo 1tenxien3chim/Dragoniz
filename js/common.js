@@ -138,6 +138,36 @@ if (window.innerWidth >= 992) {
             });
         });
     }
+    
+    function initClickEvents() {
+        const items = document.querySelectorAll('#menu-main > li');
+
+        items.forEach(item => {
+            const link = item.querySelector('a'); 
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    // Ngăn không cho <a> load trang
+                    e.preventDefault();
+
+                    // Xóa class is-active ở tất cả li cấp 1
+                    items.forEach(li => li.classList.remove('is-active'));
+
+                    // Gán class is-active cho li được click
+                    item.classList.add('is-active');
+
+                    // Cập nhật lại prev-active / next-active
+                    updateActiveNeighbors();
+                });
+            }
+        });
+    }
+
+    // Gọi hàm khi DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        updateActiveNeighbors();
+        initHoverEvents();
+        initClickEvents(); // 👈 thêm dòng này
+    });
 }
 
 //
@@ -533,7 +563,6 @@ $(".filter-land").click(function(){
 
 
 // slider tem about
-
 var sliderTeam = $(".slider-team");
 var sliderText = $(".slide-text-team");
 // Slider team
@@ -561,8 +590,8 @@ sliderText.owlCarousel({
     loop: false,
     dots: false,
     nav: false,
-    animateOut: ['fadeIn'], // default: false
-    animateIn: ['fadeIn'], // default: false
+    //animateOut: ['fadeIn'], // default: false
+    //animateIn: ['fadeIn'], // default: false
 });
 // Đồng bộ khi slider team thay đổi
 sliderTeam.on('changed.owl.carousel', function(event) {
